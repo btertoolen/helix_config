@@ -11,3 +11,5 @@ normal = "block"
 [editor.file-picker]
 hidden = false
 
+[keys.insert]
+"esc" = ["normal_mode", ":format", ":w"]
