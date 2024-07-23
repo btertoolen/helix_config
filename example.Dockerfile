@@ -16,7 +16,7 @@ RUN apt update && \
 apt install software-properties-common -y && \
 add-apt-repository ppa:maveonair/helix-editor && \
 apt update && \
-apt install curl ssh clangd git fonts-firacode ccls helix cmake clang build-essential make  zlib1g-dev libncurses-dev rapidjson-dev -y && \
+apt install python3-pip curl ssh clangd git fonts-firacode ccls helix cmake clang build-essential make  zlib1g-dev libncurses-dev rapidjson-dev -y && \
 curl -sS https://starship.rs/install.sh --yes | sh && \
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
@@ -36,7 +36,13 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y  && 
     . $HOME/.cargo/env  && \
     rustup update && \
     cargo install --locked yazi-fm yazi-cli && \
-    cargo install --locked zellij
+    cargo install --locked zellij && \
+    cargo install --locked watchexec-cli
 
+RUN cd /tmp && curl -LJo watchexec.deb 'https://github.com/watchexec/watchexec/releases/download/v2.1.2/watchexec-2.1.2-x86_64-unknown-linux-gnu.deb' && apt install ./watchexec.deb
+
+RUN pip install --break-system-packages python-lsp-server
+
+RUN apt update && apt install clangd -y
 
 RUN git clone https://github.com/luccahuguet/zellij.git ~/.config/zellij
