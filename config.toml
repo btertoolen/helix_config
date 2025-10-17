@@ -1,9 +1,12 @@
-theme = "onedark"
+theme = "bram"
 
 [editor]
+rainbow-brackets = true
 line-number = "relative"
 true-color = true
-
+auto-pairs = false
+terminal.command = "bash"
+terminal.args = [ "-c" ]
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -13,3 +16,9 @@ hidden = false
 
 [keys.insert]
 "esc" = ["normal_mode", ":format", ":w"]
+[keys.normal]
+"#" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
+[keys.select]
+"^" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
