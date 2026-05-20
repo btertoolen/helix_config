@@ -1,12 +1,8 @@
 [language-server.clangdb]
 command = "clangd"
-args=["--compile-commands-dir=/avu/creos_sdk/build/", "--enable-config"]
-
-[language-server.ccls]
-command = "ccls"
 
 [[language]]
 name = "cpp"
-# language-servers = ["clangdb"]
-language-servers = ["ccls"]
+language-servers = ["clangdb"]
+
 
