@@ -16,9 +16,14 @@ hidden = false
 
 [keys.insert]
 "esc" = ["normal_mode", ":format", ":w"]
+
 [keys.normal]
 "#" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
+S-r = [":sh ysh /home/bram/programs/utils/repl-build"]
+S-t = [":sh ysh /home/bram/programs/utils/run-tests"]
+
+
 [keys.select]
 "^" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
